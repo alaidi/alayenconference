@@ -1,0 +1,36 @@
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-blue-600 to-blue-800" id="hero" x-data="initHero()">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center text-white" 
+                 :dir="currentLang === 'ar' ? 'rtl' : 'ltr'">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span x-show="currentLang === 'ar'">
+                        مؤتمر الذكاء الاصطناعي في هندسة البترول 2024
+                    </span>
+                    <span x-show="currentLang === 'en'">
+                        AI-PE Conference 2024
+                    </span>
+                </h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-8">
+                    <span x-show="currentLang === 'ar'">
+                        تطوير هندسة البترول من خلال الذكاء الاصطناعي
+                    </span>
+                    <span x-show="currentLang === 'en'">
+                        Advancing Petroleum Engineering through Artificial Intelligence
+                    </span>
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center"
+                     :class="currentLang === 'ar' ? 'sm:flex-row-reverse' : ''">
+                    <a href="#register" class="btn-primary btn-white">
+                        <span x-show="currentLang === 'ar'" class="mx-auto">سجل الآن</span>
+                        <span x-show="currentLang === 'en'" class="mx-auto">Register Now</span>
+                    </a>
+                    <a href="#schedule" class="btn-primary btn-outline">
+                        <span x-show="currentLang === 'ar'" class="mx-auto">عرض الجدول</span>
+                        <span x-show="currentLang === 'en'" class="mx-auto">View Schedule</span>
+                    </a>
+                 
+                </div>
+            </div>
+        </div>
+    </section>

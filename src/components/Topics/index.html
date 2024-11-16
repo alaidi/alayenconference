@@ -1,0 +1,35 @@
+<div class="container mx-auto px-4 py-16" :dir="$store.app.currentLang === 'ar' ? 'rtl' : 'ltr'">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white"
+            x-text="$store.app.currentLang === 'ar' ? 'محاور المؤتمر' : 'Conference Topics'"></h2>
+    </div>
+
+    <!-- Topics Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <template x-for="topic in topics" :key="topic.id">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6">
+                <!-- Icon and Title -->
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 flex-shrink-0">
+                        <svg class="w-full h-full text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" :d="topic.icon"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white"
+                        x-text="topic[$store.app.currentLang].title"></h3>
+                </div>
+
+                <!-- Items List -->
+                <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                    <template x-for="(item, index) in topic[$store.app.currentLang].items" :key="index">
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-600 dark:text-blue-400 mt-1">•</span>
+                            <span x-text="item"></span>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </template>
+    </div>
+</div> 
